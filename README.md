@@ -47,7 +47,7 @@ NEO4J_URI = "bolt://localhost:7687"
 NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "your_password_here"
 ```
-# Repostiory Structure
+# 🧩 Repostiory Structure
 ```text
 neo4j-KG-Manager/
 ├── app.py
@@ -68,7 +68,7 @@ neo4j-KG-Manager/
 ├── LICENSE
 ```
 
-# Quick Start
+# 🗺️ Quick Start
 **1.Start the Application**
  ```bash
    python app.py
