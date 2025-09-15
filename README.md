@@ -47,12 +47,10 @@ NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "your_password_here"
 ```
 # Quick Start  
-1. Start the Application
-```bash
-  python app.py
-```
-  -The application will be available at: http://localhost:5000  
-  2. Verify Database Connection
+| Step | Command        | Notes                        |
+|-----:|----------------|------------------------------|
+| 1    | `python app.py`| App at **http://localhost:5000** |
+| 2    | `curl /health` | Health check should be `ok`  |
  
 
 
