@@ -48,6 +48,7 @@ NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "your_password_here"
 ```
 # Repostiory Structure
+```text
 neo4j-kg-manager/
 ├── README.md
 ├── requirements.txt
