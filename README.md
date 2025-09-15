@@ -22,3 +22,6 @@ A comprehensive web-based feature rule knowledge graph management system was dev
   - Clean and interactive UI design
   - Dark/light theme switching
   - Real-time search and filtering of graph elements
+
+# Requirements
+
