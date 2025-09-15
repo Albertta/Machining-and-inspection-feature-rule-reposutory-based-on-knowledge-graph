@@ -103,7 +103,19 @@ The application will be available at http://localhost:5000 \
   d. Click **"Start Import"**
   
 # API Endpoints
-All API endpoints are defined in app.py. The Flask application provides the following **REST API:** \
+All API endpoints are defined in app.py. The Flask application provides the following **REST API:** 
+**1. Graph Operations**
+- GET /api/graph - Retrieve all graph data
+- GET /api/health - Health check
+- POST /api/reconnect - Reconnect to database
+
+**2. Node Operations**
+- POST /api/nodes - Create new node
+- PUT /api/nodes/<node_id> - Update node
+- DELETE /api/nodes/<node_id> - Delete node
+
+**3. Relationship Operations**
+- POST /api/relationships - Create relationship
 
   
  
