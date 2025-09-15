@@ -70,7 +70,7 @@ neo4j-kg-manager/
 ├── static/ (if you have CSS/JS files)
 └── examples/
     └── sample_structure.xml
-
+```
 
 
 
