@@ -3,7 +3,7 @@ A comprehensive web-based feature rule knowledge graph management system was dev
 
 # 🚀 Features
 
-Interactive Graph Visualization
+*Interactive Graph Visualization
 
 Real-time graph rendering with ECharts integration
 
