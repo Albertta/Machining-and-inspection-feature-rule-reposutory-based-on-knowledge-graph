@@ -60,7 +60,7 @@ The application will be available at http://localhost:5000 \
 <img width="2549" height="1367" alt="image" src="https://github.com/user-attachments/assets/405304ef-286f-4239-a5a9-eeb94893967f" />
 
 **3.Basic Operation**
- - Create Nodes:
+ - **Create Nodes:**
    a. Click "ADD Node" button
    b. Specify labels (comma-separated)
    c. Add properties as key-value pairs
