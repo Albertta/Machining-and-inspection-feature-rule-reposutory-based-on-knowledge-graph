@@ -24,8 +24,8 @@ A comprehensive web-based feature rule knowledge graph management system was dev
   - Real-time search and filtering of graph elements
 
 # 🌿 Requirements  
--Python==3.9.18
--Flask==3.0.3
--Flask-CORS==6.0.1
--py2neo==2021.2.3
+- Python==3.9.18
+- Flask==3.0.3
+- Flask-CORS==6.0.1
+- py2neo==2021.2.3
 
