@@ -36,8 +36,8 @@ A comprehensive web-based feature rule knowledge graph management system was dev
   Set password (configure in config.py)
   Start the database
 - Option B: Neo4j Docker \
-bash
-  -docker run  --name neo4j-kg  -p 7474:7474 -p 7687:7687 -e NEO4J_AUTH=neo4j/yourpassword neo4j:latest
+```bash
+  docker run  --name neo4j-kg  -p 7474:7474 -p 7687:7687 -e NEO4J_AUTH=neo4j/yourpassword neo4j:latest
 
 # 🧱 Environment Configuration
 - Configure directly in **config.py**:
