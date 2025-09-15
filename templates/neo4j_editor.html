@@ -1,0 +1,2701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature rule repository based on knowledge graph</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); min-height: 100vh; color: #fff; }
+        .header { background: rgba(35, 38, 39, 0.95); padding: 15px 25px; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+        .header h1 { color: #ffffff; font-size: 20px; font-weight: 600; display: inline-block; }
+        .connection-status { float: right; display: flex; align-items: center; gap: 10px; }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #27ae60; }
+        .main-container { display: flex; height: calc(100vh - 70px); gap: 10px; padding: 10px; }
+        .left-panel { flex: 1; background: rgba(17, 17, 17, 0.95); border-radius: 10px; display: flex; flex-direction: column; }
+        .toolbar { padding: 10px; background: rgba(35, 38, 39, 0.8); border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; }
+        .btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .btn { padding: 10px 16px; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; color: white; transition: all 0.3s; position: relative; }
+        .btn:hover { transform: translateY(-1px); }
+        .btn-primary { background: #0078d4; } .btn-success { background: #107c10; } .btn-warning { background: #5c2d91; } .btn-danger { background: #d13438; } .btn-secondary { background: #7A7A7A; } .btn-info { background: #2196F3; }.btn-orange { background: #ff9500; }
+
+
+        .btn-with-context {
+            position: relative;
+        }
+
+        .btn-with-context::after {
+            content: '?';
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 12px;
+            height: 12px;
+            background: rgba(52, 152, 219, 0.8);
+            border-radius: 50%;
+            font-size: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .btn-with-context:hover::after {
+            opacity: 1;
+        }
+
+
+        .context-menu {
+            position: fixed;
+            background: rgba(35, 38, 39, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            padding: 12px 16px;
+            z-index: 10000;
+            display: none;
+            min-width: 280px;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+            color: #fff;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .context-menu::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 20px;
+            width: 12px;
+            height: 12px;
+            background: rgba(35, 38, 39, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: none;
+            border-right: none;
+            transform: rotate(45deg);
+            border-radius: 2px 0 0 0;
+        }
+
+        .context-menu-title {
+            font-weight: 600;
+            color: #8cc8ff;
+            margin-bottom: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .context-menu-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .context-menu-description {
+            color: #cfd8e3;
+            margin-bottom: 10px;
+        }
+
+        .context-menu-shortcuts {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 8px;
+            font-size: 11px;
+            color: #95a5a6;
+        }
+
+        .context-menu-shortcut {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .context-menu-key {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+
+        .context-menu.show {
+            display: block;
+            animation: contextMenuSlideIn 0.2s ease-out;
+        }
+
+        .context-menu.hide {
+            animation: contextMenuSlideOut 0.15s ease-in;
+        }
+
+        @keyframes contextMenuSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes contextMenuSlideOut {
+            from {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-10px) scale(0.95);
+            }
+        }
+
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background: rgba(35, 38, 39, 0.98); min-width: 160px; box-shadow: 0 8px 16px rgba(0,0,0,0.4); border-radius: 6px; z-index: 1000; top: 100%; left: 0; border: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content a { color: #fff; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; transition: background 0.3s; }
+        .dropdown-content a:hover { background: rgba(255,255,255,0.1); }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .graph-container { flex: 1; position: relative; background: #f8f9fa; }
+        #graph-chart { width: 100%; height: 100%; }
+
+        #view-controls {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            z-index: 100;
+            display: flex;
+            gap: 5px;
+        }
+        #view-controls .btn {
+            padding: 6px 12px;
+            font-size: 11px;
+        }
+
+        .right-panel { width: 460px; background: rgba(35, 38, 39, 0.95); border-radius: 10px; display: flex; flex-direction: column; }
+        .panel-section { flex: 1; display: flex; flex-direction: column; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .panel-header { padding: 12px 15px; background: rgba(0,0,0,0.3); font-weight: 600; font-size: 14px; }
+        .panel-content { padding: 15px; flex: 1; overflow-y: auto; }
+        .detail-card { background: rgba(21, 21, 21, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; margin-bottom: 10px; }
+        .detail-header { background: rgba(0,0,0,0.3); padding: 8px 12px; font-size: 12px; color: #cfd8e3; }
+        .detail-content { padding: 12px; font-size: 11px; }
+        .detail-property { display: flex; justify-content: space-between; padding: 4px 0; }
+        .detail-key { color: #8cc8ff; font-weight: 500; }
+        .detail-value { color: #ffffff; word-break: break-all; }
+        .edit-button { background: #0078d4; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 11px; cursor: pointer; margin-top: 8px; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); }
+        .modal-content { background: #232627; margin: 2% auto; padding: 0; border-radius: 10px; width: 90%; max-width: 700px; color: white; }
+        .modal-header { padding: 15px 20px; background: rgba(0,0,0,0.3); display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h2 { margin: 0; font-size: 16px; }
+        .close { background: none; border: none; color: #cfd8e3; font-size: 20px; cursor: pointer; }
+        .modal-body { padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 500; color: #cfd8e3; }
+        .form-control { width: 100%; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: rgba(21, 21, 21, 0.8); color: white; }
+        .form-control:focus { outline: none; border-color: #0078d4; }
+        .kv-table { border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; margin-top: 10px; }
+        .kv-header { background: rgba(0,0,0,0.4); padding: 10px 12px; display: flex; justify-content: space-between; }
+        .kv-row { display: flex; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .kv-row input { flex: 1; padding: 8px 12px; border: none; background: rgba(21, 21, 21, 0.6); color: white; }
+        .kv-row button { padding: 8px 12px; background: #d13438; color: white; border: none; cursor: pointer; }
+        .modal-footer { padding: 15px 20px; background: rgba(0,0,0,0.2); display: flex; justify-content: flex-end; gap: 10px; }
+        .pick-button { background: #0078d4; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; margin-left: 8px; }
+        .status-bar { background: rgba(35, 38, 39, 0.95); padding: 8px 20px; color: #cfd8e3; font-size: 13px; }
+        .notification { position: fixed; top: 80px; right: 20px; padding: 12px 16px; border-radius: 6px; color: white; z-index: 10000; animation: slideIn 0.3s; }
+        .notification.success { background: #27ae60; }
+        .notification.error { background: #e74c3c; }
+        .notification.warning { background: #f39c12; }
+        .notification.info { background: #3498db; }
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+        @keyframes slideOut { from { transform: translateX(0); } to { transform: translateX(100%); } }
+        .pick-hint { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); background: rgba(255, 152, 0, 0.9); color: white; padding: 8px 16px; border-radius: 6px; z-index: 100; }
+        .combo-box { position: relative; }
+        .combo-box select { width: 100%; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: rgba(21, 21, 21, 0.8); color: white; }
+        .combo-box::after { content: '▼'; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: #cfd8e3; font-size: 10px; pointer-events: none; }
+        .file-input { display: none; }
+        .format-radio { margin: 10px 0; }
+        .format-radio input[type="radio"] { margin-right: 8px; }
+        .format-radio label { cursor: pointer; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; margin-right: 10px; transition: all 0.3s; }
+        .format-radio input[type="radio"]:checked + label { background: #0078d4; border-color: #0078d4; }
+
+        .modal-header {
+            cursor: move;
+            user-select: none;
+        }
+        .modal-header:hover {
+            background: rgba(0,0,0,0.5);
+        }
+        .search-dropdown-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background 0.2s;
+        }
+
+        .search-dropdown-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .search-dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .node-highlighted {
+            animation: nodeHighlight 2s ease-in-out;
+        }
+
+        @keyframes nodeHighlight {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: #0078d4;
+            box-shadow: 0 0 5px rgba(0, 120, 212, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Feature rule repository based on knowledge graph</h1>
+        <div class="connection-status"><span class="status-dot"></span><span>Ready</span></div>
+    </div>
+
+    <div class="main-container">
+        <div class="left-panel">
+            <div class="toolbar">
+                <div class="btn-group">
+                    <button class="btn btn-primary btn-with-context"
+                            onclick="showAddNodeModal()">ADD Node</button>
+                    <button class="btn btn-success btn-with-context"
+                            onclick="showAddRelModal()">ADD Relationship</button>
+                    <button class="btn btn-warning btn-with-context"
+                            onclick="editSelectedNode()">Edit Node</button>
+                    <button class="btn btn-orange btn-with-context"
+                            onclick="editSelectedRel()">Edit Relationship</button>
+                    <button class="btn btn-danger btn-with-context"
+                            onclick="deleteSelected()">Delete Node</button>
+                    <button class="btn btn-danger btn-with-context"
+                            onclick="deleteRelSelected()">Delete Relationship</button>
+
+                    <div class="dropdown">
+                        <button class="btn btn-orange btn-with-context">Export ▼</button>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="exportFullXML()">Export Full XML</a>
+                            <a href="#" onclick="showSelectiveExportModal()">Selective Export</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-info btn-with-context">Import ▼</button>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="importXMLFile()">Import XML File</a>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-secondary btn-with-context"
+                            onclick="reconnectDB()">Reconnect</button>
+
+                    <div class="search-container" style="position: relative; display: inline-block; margin-left: 10px;">
+                        <input type="text" id="node-search-input" placeholder="Search Repository..."
+                               style="padding: 10px 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
+                                      background: rgba(21, 21, 21, 0.8); color: white; width: 180px; font-size: 13px;
+                                      vertical-align: top;"
+                               oninput="handleSearchInput(this.value)"
+                               onfocus="showSearchDropdown()"
+                               onblur="hideSearchDropdown()">
+
+                        <div id="search-dropdown" class="search-dropdown"
+                             style="position: absolute; top: 100%; left: 0; width: 100%; max-height: 200px;
+                                    background: rgba(35, 38, 39, 0.98); border: 1px solid rgba(255,255,255,0.2);
+                                    border-radius: 6px; overflow-y: auto; z-index: 1000; display: none;
+                                    box-shadow: 0 8px 16px rgba(0,0,0,0.4); margin-top: 2px;">
+                        </div>
+                    </div>
+                     <button class="btn btn-info" onclick="clearSearch()"
+                        style="padding: 10px 12px; font-size: 13px; margin-left: 5px;">Clear</button>
+                </div>
+            </div>
+            <div class="graph-container">
+                <div id="graph-chart"></div>
+                <div id="pick-hint" class="pick-hint" style="display: none;">Selecting node: Please click on a node in the canvas</div>
+
+
+                <div id="view-controls">
+                    <button class="btn btn-secondary" onclick="toggleEdgeLabels()" >Labels</button>
+                    <button class="btn btn-secondary" onclick="resetLayout()" >Layout</button>
+                    <button class="btn btn-secondary" onclick="fitView()" >Fit View</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="right-panel">
+            <div class="panel-section">
+                <div class="panel-header">Node Details</div>
+                <div class="panel-content">
+                    <div id="node-details-container">
+                        <div style="text-align: center; color: #6c757d; padding: 20px;">Click on a node in the graph to view details</div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-header">Relationship Details</div>
+                <div class="panel-content">
+                    <div id="rel-details-container">
+                        <div style="text-align: center; color: #6c757d; padding: 20px;">Click on a relationship in the graph to view details</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="status-bar"><span id="status-text">Ready - Right-click buttons for detailed instructions</span></div>
+
+
+    <div id="context-menu" class="context-menu">
+        <div class="context-menu-title">
+            <span class="context-menu-icon"></span>
+            <span id="context-menu-title-text"></span>
+        </div>
+        <div class="context-menu-description" id="context-menu-description"></div>
+        <div class="context-menu-shortcuts" id="context-menu-shortcuts"></div>
+    </div>
+
+
+
+    <div id="xml-import-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>XML File Import</h2>
+                <button class="close" onclick="closeModal('xml-import-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="xml-repository-name">Top-level Node Name (Repository Name)</label>
+                    <input type="text" id="xml-repository-name" class="form-control"
+                           placeholder="Please enter the top-level node name, e.g., BaseRepository" required>
+                    <div style="font-size: 11px; color: #95a5a6; margin-top: 4px;">
+                        This Repository node will serve as the parent node for all imported structures, connected via HAS_STRUCTURE relationships
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="xml-import-file">Select XML File</label>
+                    <input type="file" id="xml-import-file" class="form-control"
+                           accept=".xml" onchange="handleXMLFileSelect(this)">
+                </div>
+
+                <div id="xml-file-info" style="margin-top: 10px; font-size: 12px; color: #cfd8e3;">
+                    Supported format: XML (.xml)
+                </div>
+
+                <div style="margin-top: 15px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 6px; font-size: 12px; color: #cfd8e3;">
+                    <strong>Import Instructions:</strong><br>
+                    • The system will create a Repository node as the top-level container<br>
+                    • All imported structures will be connected to the Repository via HAS_STRUCTURE relationships<br>
+                    • Duplicate nodes and relationships will be removed<br>
+                    • Data integrity is maintained throughout the import process<br>
+                    • Supports XML files in StandardFeatureStructure format
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('xml-import-modal')">Cancel</button>
+                <button class="btn btn-primary" id="xml-import-btn" onclick="performXMLImport()" disabled>Start Import</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <input type="file" id="xml-file-input" class="file-input" accept=".xml" onchange="handleXMLImport(this)">
+
+    <div id="add-node-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Node</h2>
+                <button class="close" onclick="closeModal('add-node-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="node-labels">Labels (comma separated)</label>
+                    <input type="text" id="node-labels" class="form-control" placeholder="Person,Student" value="Node">
+                </div>
+                <div class="form-group">
+                    <label>Properties</label>
+                    <div class="kv-table">
+                        <div class="kv-header">
+                            <span>Property Settings</span>
+                            <button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;" onclick="addKVRow('node-properties')">Add Property</button>
+                        </div>
+                        <div id="node-properties"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('add-node-modal')">Cancel</button>
+                <button class="btn btn-primary" onclick="createNode()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="add-rel-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Relationship</h2>
+                <button class="close" onclick="closeModal('add-rel-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="rel-type">Relationship Type</label>
+                    <input type="text" id="rel-type" class="form-control" placeholder="RELATED" value="RELATED">
+                </div>
+                <div class="form-group">
+                    <label>Start Node</label>
+                    <div style="display: flex; align-items: center;">
+                        <div class="combo-box" style="flex: 1;">
+                            <select id="rel-source" class="form-control">
+                                <option value="">Please select start node</option>
+                            </select>
+                        </div>
+                        <button class="pick-button" onclick="pickStartNode()">Select from Canvas</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Target Node</label>
+                    <div style="display: flex; align-items: center;">
+                        <div class="combo-box" style="flex: 1;">
+                            <select id="rel-target" class="form-control">
+                                <option value="">Please select target node</option>
+                            </select>
+                        </div>
+                        <button class="pick-button" onclick="pickEndNode()">Select from Canvas</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Properties</label>
+                    <div class="kv-table">
+                        <div class="kv-header">
+                            <span>Property Settings</span>
+                            <button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;" onclick="addKVRow('rel-properties')">Add Property</button>
+                        </div>
+                        <div id="rel-properties"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('add-rel-modal')">Cancel</button>
+                <button class="btn btn-success" onclick="createRelation()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="edit-node-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Node</h2>
+                <button class="close" onclick="closeModal('edit-node-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="edit-node-labels">Labels (comma separated)</label>
+                    <input type="text" id="edit-node-labels" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Properties</label>
+                    <div class="kv-table">
+                        <div class="kv-header">
+                            <span>Property Settings</span>
+                            <button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;" onclick="addKVRow('edit-node-properties')">Add Property</button>
+                        </div>
+                        <div id="edit-node-properties"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('edit-node-modal')">Cancel</button>
+                <button class="btn btn-warning" onclick="updateNode()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="edit-rel-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Relationship</h2>
+                <button class="close" onclick="closeModal('edit-rel-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="edit-rel-type">Relationship Type</label>
+                    <input type="text" id="edit-rel-type" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Start Node</label>
+                    <div style="display: flex; align-items: center;">
+                        <div class="combo-box" style="flex: 1;">
+                            <select id="edit-rel-source" class="form-control">
+                                <option value="">Please select start node</option>
+                            </select>
+                        </div>
+                        <button class="pick-button" onclick="pickEditStartNode()">Select from Canvas</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Target Node</label>
+                    <div style="display: flex; align-items: center;">
+                        <div class="combo-box" style="flex: 1;">
+                            <select id="edit-rel-target" class="form-control">
+                                <option value="">Please select target node</option>
+                            </select>
+                        </div>
+                        <button class="pick-button" onclick="pickEditEndNode()">Select from Canvas</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Properties</label>
+                    <div class="kv-table">
+                        <div class="kv-header">
+                            <span>Property Settings</span>
+                            <button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;" onclick="addKVRow('edit-rel-properties')">Add Property</button>
+                        </div>
+                        <div id="edit-rel-properties"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('edit-rel-modal')">Cancel</button>
+                <button class="btn btn-warning" onclick="updateRelation()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+        let chart = null;
+        let graphData = {nodes: [], rels: []};
+        let selectedNode = null;
+        let selectedRel = null;
+        let pickMode = null;
+        let currentModal = null;
+        let edgeLabelsVisible = true;
+        const API_BASE = '/api';
+        let searchResults = [];
+        let searchDropdownVisible = false;
+
+
+        class ContextMenuManager {
+            constructor() {
+                this.contextMenu = document.getElementById('context-menu');
+                this.isVisible = false;
+                this.init();
+            }
+
+            init() {
+                document.addEventListener('contextmenu', (e) => {
+                    const button = e.target.closest('.btn-with-context');
+                    if (button) {
+                        e.preventDefault();
+                        this.showContextMenu(e, button);
+                    } else {
+                        this.hideContextMenu();
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!this.contextMenu.contains(e.target)) {
+                        this.hideContextMenu();
+                    }
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        this.hideContextMenu();
+                    }
+                });
+            }
+
+            showContextMenu(event, button) {
+                const title = button.dataset.title || 'Unknown Operation';
+                const description = button.dataset.description || 'No description available';
+                const shortcuts = button.dataset.shortcuts ? JSON.parse(button.dataset.shortcuts) : [];
+
+                this.setMenuContent(title, description, shortcuts, button);
+                const { x, y } = this.calculatePosition(event);
+
+                this.contextMenu.style.left = x + 'px';
+                this.contextMenu.style.top = y + 'px';
+                this.contextMenu.classList.remove('hide');
+                this.contextMenu.classList.add('show');
+                this.isVisible = true;
+            }
+
+            hideContextMenu() {
+                if (this.isVisible) {
+                    this.contextMenu.classList.remove('show');
+                    this.contextMenu.classList.add('hide');
+
+                    setTimeout(() => {
+                        this.contextMenu.style.display = 'none';
+                        this.contextMenu.classList.remove('hide');
+                    }, 150);
+
+                    this.isVisible = false;
+                }
+            }
+
+            setMenuContent(title, description, shortcuts, button) {
+                const icon = this.contextMenu.querySelector('.context-menu-icon');
+                const buttonStyle = window.getComputedStyle(button);
+                icon.style.backgroundColor = buttonStyle.backgroundColor;
+
+                document.getElementById('context-menu-title-text').textContent = title;
+                document.getElementById('context-menu-description').textContent = description;
+
+                const shortcutsContainer = document.getElementById('context-menu-shortcuts');
+                if (shortcuts.length > 0) {
+                    shortcutsContainer.innerHTML = shortcuts.map(shortcut => `
+                        <div class="context-menu-shortcut">
+                            <span>${shortcut.action}</span>
+                            <span class="context-menu-key">${shortcut.key}</span>
+                        </div>
+                    `).join('');
+                    shortcutsContainer.style.display = 'block';
+                } else {
+                    shortcutsContainer.style.display = 'none';
+                }
+            }
+
+            calculatePosition(event) {
+                const menuWidth = 300;
+                const menuHeight = 150;
+                const padding = 10;
+
+                let x = event.clientX + padding;
+                let y = event.clientY + padding;
+
+                if (x + menuWidth > window.innerWidth) {
+                    x = event.clientX - menuWidth - padding;
+                }
+                if (y + menuHeight > window.innerHeight) {
+                    y = event.clientY - menuHeight - padding;
+                }
+
+                x = Math.max(padding, Math.min(x, window.innerWidth - menuWidth - padding));
+                y = Math.max(padding, Math.min(y, window.innerHeight - menuHeight - padding));
+
+                return { x, y };
+            }
+        }
+
+
+        function initChart() {
+            const container = document.getElementById('graph-chart');
+            if (!container) {
+                console.error('Chart container not found');
+                return;
+            }
+
+
+            if (container.offsetWidth === 0 || container.offsetHeight === 0) {
+                console.warn('Chart container size is 0, delaying initialization');
+                setTimeout(initChart, 100);
+                return;
+            }
+
+            try {
+                chart = echarts.init(container);
+                console.log('Chart initialized successfully, container size:', container.offsetWidth, 'x', container.offsetHeight);
+
+                const option = {
+                    backgroundColor: 'transparent',
+                    animationDuration: 1000,
+
+                    series: [{
+                        type: 'graph',
+                        layout: 'force',
+                        data: [],
+                        links: [],
+                        roam: true,
+                        draggable: true,
+
+
+                        force: {
+                            repulsion: 800,
+                            gravity: 0.1,
+                            edgeLength: 120,
+                            layoutAnimation: true,
+                            friction: 0.6
+                        },
+
+
+                        itemStyle: {
+                            borderColor: '#2c3e50',
+                            borderWidth: 2,
+                            shadowBlur: 8,
+                            shadowColor: 'rgba(0, 0, 0, 0.3)'
+                        },
+
+
+                        lineStyle: {
+                            color: '#7f8c8d',
+                            width: 2,
+                            opacity: 0.8
+                        },
+
+
+                        edgeLabel: {
+                            show: true,
+                            position: 'middle',
+                            fontSize: 10,
+                            color: '#95a5a6',
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            padding: [2, 4],
+                            borderRadius: 3
+                        },
+
+
+                        label: {
+                            show: true,
+                            position: 'inside',
+                            fontSize: 11,
+                            fontWeight: 'bold',
+                            color: '#2c3e50'
+                        },
+
+
+                        emphasis: {
+                            focus: 'adjacency',
+                            lineStyle: {
+                                width: 4
+                            },
+                            itemStyle: {
+                                borderWidth: 4,
+                                shadowBlur: 15
+                            }
+                        }
+                    }],
+
+
+                    legend: {
+                        show: true,
+                        data: [],
+                        top: 10,
+                        left: 10,
+                        textStyle: {
+                            color: '#ecf0f1'
+                        }
+                    }
+                };
+
+                chart.setOption(option);
+
+
+                chart.on('click', handleChartClick);
+
+
+                window.addEventListener('resize', () => {
+                    if (chart) {
+                        chart.resize();
+                    }
+                });
+
+                console.log('Chart configuration setup completed');
+
+            } catch (error) {
+                console.error('Chart initialization failed:', error);
+            }
+        }
+
+
+        function updateChart() {
+             if (!chart) {
+                console.error('Chart not initialized, unable to update');
+                return;
+            }
+
+            if (!graphData || !graphData.nodes || !graphData.rels) {
+                console.error('Invalid graph data:', graphData);
+                return;
+            }
+
+            console.log('Starting chart update, data volume:', graphData.nodes.length, 'nodes,', graphData.rels.length, 'relationships');
+
+            try {
+
+                const labelColorMap = {};
+                const colors = [
+                    '#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6',
+                    '#1abc9c', '#e67e22', '#34495e', '#16a085', '#27ae60'
+                ];
+
+                let colorIndex = 0;
+                graphData.nodes.forEach(node => {
+                    const primaryLabel = node.labels?.[0] || 'Node';
+                    if (!labelColorMap[primaryLabel]) {
+                        labelColorMap[primaryLabel] = colors[colorIndex % colors.length];
+                        colorIndex++;
+                    }
+                });
+
+
+                const nodes = graphData.nodes.map((node, index) => {
+                    const primaryLabel = node.labels?.[0] || 'Node';
+                    const displayName = getNodeDisplayName(node);
+
+                    return {
+                        id: String(node.id),
+                        name: displayName,
+                        symbolSize: Math.max(30, Math.min(60, displayName.length * 3 + 30)),
+                        itemStyle: {
+                            color: labelColorMap[primaryLabel],
+                            borderColor: '#2c3e50',
+                            borderWidth: 2
+                        },
+                        nodeData: node,
+                        category: primaryLabel,
+                        draggable: true,
+
+                        x: Math.cos(index * 2) * 100 + Math.random() * 200,
+                        y: Math.sin(index * 2) * 100 + Math.random() * 200
+                    };
+                });
+
+
+                const links = graphData.rels.map(rel => ({
+                    source: String(rel.source),
+                    target: String(rel.target),
+                    name: rel.type || 'RELATED',
+                    lineStyle: {
+                        color: getRelationshipColor(rel.type),
+                        width: 2,
+                        curveness: 0.3
+                    },
+                    label: {
+                        show: true,
+                        formatter: rel.type || 'RELATED',
+                        fontSize: 10,
+                        color: '#ffffff',
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        padding: [2, 6],
+                        borderRadius: 3
+                    },
+                    relData: rel
+                }));
+
+
+                const categories = Object.keys(labelColorMap).map(label => ({
+                    name: label,
+                    itemStyle: {
+                        color: labelColorMap[label]
+                    }
+                }));
+
+                console.log('Processed data:', {
+                    nodes: nodes.length,
+                    links: links.length,
+                    categories: categories.length,
+                    sampleNode: nodes[0],
+                    sampleLink: links[0]
+                });
+
+
+                const option = {
+                    legend: {
+                        data: categories
+                    },
+                    series: [{
+                        type: 'graph',
+                        layout: 'force',
+                        data: nodes,
+                        links: links,
+                        categories: categories,
+                        roam: true,
+                        draggable: true,
+
+                        force: {
+                            repulsion: Math.max(800, nodes.length * 30),
+                            gravity: 0.1,
+                            edgeLength: [80, 200],
+                            layoutAnimation: true,
+                            friction: 0.6
+                        },
+
+                        itemStyle: {
+                            borderWidth: 2,
+                            shadowBlur: 8,
+                            shadowColor: 'rgba(0, 0, 0, 0.3)'
+                        },
+
+                        lineStyle: {
+                            width: 2,
+                            opacity: 0.8
+                        },
+
+                        edgeLabel: {
+                            show: true,
+                            position: 'middle',
+                            fontSize: 10,
+                            color: '#bdc3c7',
+                            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                            padding: [1, 3],
+                            borderRadius: 2
+                        },
+
+                        label: {
+                            show: true,
+                            position: 'inside',
+                            fontSize: 11,
+                            fontWeight: 'bold',
+                            color: '#2c3e50'
+                        },
+
+                        emphasis: {
+                            focus: 'adjacency',
+                            lineStyle: {
+                                width: 4
+                            },
+                            itemStyle: {
+                                borderWidth: 4,
+                                shadowBlur: 15
+                            }
+                        }
+                    }]
+                };
+
+
+                chart.setOption(option, true);
+
+                console.log('Chart update completed');
+
+
+                setTimeout(() => {
+                    if (chart) {
+                        chart.resize();
+                        console.log('Chart size has been adjusted');
+                    }
+                }, 100);
+
+            } catch (error) {
+                console.error('Chart update failed:', error);
+                console.error('Error details:', error.stack);
+            }
+        }
+
+
+        function toggleEdgeLabels() {
+            edgeLabelsVisible = !edgeLabelsVisible;
+            updateChart();
+            showNotification(edgeLabelsVisible ? 'Relationship labels displayed' : 'Relationship labels hidden', 'info');
+        }
+
+        function resetLayout() {
+            if (!chart) return;
+            const nodeCount = graphData.nodes.length;
+            let repulsion, gravity, edgeLength;
+
+            if (nodeCount < 10) {
+                repulsion = 800; gravity = 0.1; edgeLength = [100, 200];
+            } else if (nodeCount < 50) {
+                repulsion = 1200; gravity = 0.05; edgeLength = [80, 150];
+            } else {
+                repulsion = 1500; gravity = 0.03; edgeLength = [60, 120];
+            }
+
+            chart.setOption({
+                series: [{ force: { repulsion, gravity, edgeLength } }]
+            });
+            showNotification('Layout reset', 'info');
+        }
+
+        function fitView() {
+            chart.setOption({ series: [{ zoom: 1, center: [0, 0] }] });
+            showNotification('View fitted', 'info');
+        }
+
+
+        function handleChartClick(params) {
+            if (pickMode) {
+                if (params.dataType === 'node') {
+                    handleNodePick(params.data);
+                }
+                return;
+            }
+
+            if (params.dataType === 'node') {
+                selectNode(params.data);
+            } else if (params.dataType === 'edge') {
+                selectRelation(params.data);
+            } else {
+                clearSelection();
+            }
+        }
+
+
+        function handleSearchInput(value) {
+            const searchTerm = value.toLowerCase().trim();
+
+            if (searchTerm === '') {
+                hideSearchDropdown();
+                clearHighlight();
+                return;
+            }
+
+
+            searchResults = graphData.nodes.filter(node => {
+
+                const isTopLevelNode = node.labels && (
+                    node.labels.includes('Repository') ||
+                    node.labels.includes('BaseRepository') ||
+                    node.labels.some(label => label.toLowerCase().includes('repository'))
+                );
+
+                if (!isTopLevelNode) {
+                    return false;
+                }
+
+                const displayName = getNodeDisplayName(node).toLowerCase();
+                const nodeProperties = node.properties || {};
+
+
+                return displayName.includes(searchTerm) ||
+                       node.labels.some(label => label.toLowerCase().includes(searchTerm)) ||
+                       Object.values(nodeProperties).some(prop =>
+                           String(prop).toLowerCase().includes(searchTerm)
+                       );
+            });
+
+            console.log('Search results for "' + searchTerm + '":', searchResults);
+
+            updateSearchDropdown();
+            showSearchDropdown();
+        }
+
+
+        function updateSearchDropdown() {
+            const dropdown = document.getElementById('search-dropdown');
+
+            if (searchResults.length === 0) {
+                dropdown.innerHTML = '<div class="search-dropdown-item" style="color: #666;">No matching nodes found</div>';
+                return;
+            }
+
+            dropdown.innerHTML = searchResults.slice(0, 10).map((node, index) => {
+                const displayName = getNodeDisplayName(node);
+                const labels = node.labels ? `[${node.labels.join(', ')}]` : '';
+
+                return `<div class="search-dropdown-item"
+                             onmousedown="selectSearchResult(${index})"
+                             title="ID: ${node.id}">
+                            <div style="font-weight: bold;">${displayName}</div>
+                            <div style="font-size: 10px; color: #999;">${labels}</div>
+                        </div>`;
+            }).join('');
+        }
+
+        function selectSearchResult(index) {
+            if (index >= 0 && index < searchResults.length) {
+                const selectedNode = searchResults[index];
+
+
+                document.getElementById('node-search-input').value = getNodeDisplayName(selectedNode);
+
+
+                locateNode(selectedNode);
+
+
+                hideSearchDropdown();
+            }
+        }
+
+
+     function locateNode(targetNode) {
+            if (!chart || !targetNode) return;
+
+            try {
+
+                clearHighlight();
+
+
+                const option = chart.getOption();
+                const seriesData = option.series[0].data;
+
+
+                const nodeIndex = seriesData.findIndex(node => node.id === targetNode.id);
+
+                if (nodeIndex !== -1) {
+                    const targetChartNode = seriesData[nodeIndex];
+
+
+                    highlightNode(targetChartNode);
+
+
+                    chart.dispatchAction({
+                        type: 'focusNodeAdjacency',
+                        seriesIndex: 0,
+                        dataIndex: nodeIndex
+                    });
+
+
+                    setTimeout(() => {
+                        const nodePosition = chart.convertToPixel('series', [targetChartNode.x || 0, targetChartNode.y || 0]);
+                        const containerRect = document.getElementById('graph-chart').getBoundingClientRect();
+                        const centerX = containerRect.width / 2;
+                        const centerY = containerRect.height / 2;
+
+
+                        const offsetX = centerX - nodePosition[0];
+                        const offsetY = centerY - nodePosition[1];
+
+
+                        chart.dispatchAction({
+                            type: 'graphRoam',
+                            seriesIndex: 0,
+                            dx: offsetX,
+                            dy: offsetY
+                        });
+                    }, 100);
+
+
+                    selectNode({nodeData: targetNode});
+
+
+                    showNotification(`Located node: ${getNodeDisplayName(targetNode)}`, 'success');
+
+
+                    setTimeout(() => {
+                        const highlightedNode = seriesData[nodeIndex];
+                        highlightedNode.itemStyle = {
+                            ...highlightedNode.itemStyle,
+                            borderColor: '#ff6b6b',
+                            borderWidth: 4,
+                            shadowColor: '#ff6b6b',
+                            shadowBlur: 20
+                        };
+                        chart.setOption(option);
+
+
+                        setTimeout(() => {
+                            clearHighlight();
+                        }, 3000);
+                    }, 100);
+                } else {
+                    showNotification('Node not found in chart', 'warning');
+                }
+            } catch (error) {
+                console.error('Error locating node:', error);
+                showNotification('Failed to locate node', 'error');
+            }
+        }
+
+
+
+        function highlightNode(chartNode) {
+            if (!chart || !chartNode) return;
+
+            const option = chart.getOption();
+            const seriesData = option.series[0].data;
+
+
+            const nodeIndex = seriesData.findIndex(node => node.id === chartNode.id);
+            if (nodeIndex !== -1) {
+                seriesData[nodeIndex].itemStyle = {
+                    ...seriesData[nodeIndex].itemStyle,
+                    borderColor: '#ff6b6b',
+                    borderWidth: 4,
+                    shadowColor: '#ff6b6b',
+                    shadowBlur: 20
+                };
+
+                chart.setOption(option);
+            }
+        }
+
+        function clearHighlight() {
+            if (!chart) return;
+
+            try {
+                const option = chart.getOption();
+                const seriesData = option.series[0].data;
+
+
+                seriesData.forEach(node => {
+                    if (node.itemStyle) {
+                        node.itemStyle.borderColor = '#2c3e50';
+                        node.itemStyle.borderWidth = 2;
+                        node.itemStyle.shadowColor = 'rgba(0, 0, 0, 0.3)';
+                        node.itemStyle.shadowBlur = 8;
+                    }
+                });
+
+                chart.setOption(option);
+            } catch (error) {
+                console.error('Error clearing highlight:', error);
+            }
+        }
+
+        function showSearchDropdown() {
+            const dropdown = document.getElementById('search-dropdown');
+            dropdown.style.display = 'block';
+            searchDropdownVisible = true;
+        }
+
+        function hideSearchDropdown() {
+            setTimeout(() => {
+                const dropdown = document.getElementById('search-dropdown');
+                dropdown.style.display = 'none';
+                searchDropdownVisible = false;
+            }, 200);
+        }
+
+        function clearSearch() {
+            document.getElementById('node-search-input').value = '';
+            hideSearchDropdown();
+            clearHighlight();
+            searchResults = [];
+            showNotification('Search cleared', 'info');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('node-search-input');
+            let selectedIndex = -1;
+
+            searchInput.addEventListener('keydown', function(e) {
+                if (!searchDropdownVisible || searchResults.length === 0) return;
+
+                switch(e.key) {
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        selectedIndex = Math.min(selectedIndex + 1, searchResults.length - 1);
+                        updateDropdownSelection();
+                        break;
+
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        selectedIndex = Math.max(selectedIndex - 1, -1);
+                        updateDropdownSelection();
+                        break;
+
+                    case 'Enter':
+                        e.preventDefault();
+                        if (selectedIndex >= 0) {
+                            selectSearchResult(selectedIndex);
+                        }
+                        break;
+
+                    case 'Escape':
+                        hideSearchDropdown();
+                        clearHighlight();
+                        break;
+                }
+            });
+
+        function updateDropdownSelection() {
+                const items = document.querySelectorAll('.search-dropdown-item');
+                items.forEach((item, index) => {
+                    if (index === selectedIndex) {
+                        item.style.backgroundColor = 'rgba(0, 120, 212, 0.3)';
+                    } else {
+                        item.style.backgroundColor = 'transparent';
+                    }
+                });
+            }
+        });
+
+
+
+        function getNodeDisplayName(node) {
+            const props = node.properties || {};
+            return props.name || props.english_name || (node.labels?.[0] || 'Node');
+        }
+
+        function getRelationshipColor(relType) {
+            const relColors = {
+                'HAS_FACE': '#3498db',
+                'RELATIONSHIP': '#95a5a6',
+                'CONTAINS': '#e74c3c',
+                'CONNECTS': '#2ecc71',
+                'BELONGS_TO': '#f39c12',
+                'PART_OF': '#9b59b6',
+                'SIMILAR_TO': '#1abc9c',
+                'HAS': '#e67e22',
+                'IS': '#34495e'
+            };
+            return relColors[relType] || '#7f8c8d';
+        }
+
+
+        function initKeyboardShortcuts() {
+            document.addEventListener('keydown', (e) => {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                    return;
+                }
+
+                if (e.ctrlKey && e.key === 'e') {
+                    e.preventDefault();
+                    showExportModal();
+                    showNotification('Shortcut operation: Export data', 'info');
+                } else if (e.ctrlKey && e.key === 'i') {
+                    e.preventDefault();
+                    showImportModal();
+                    showNotification('Shortcut operation: Import data', 'info');
+                } else if (e.key === 'e' || e.key === 'E') {
+                    editSelectedNode();
+                    if (selectedNode) showNotification('Shortcut operation: Edit Node', 'info');
+                } else if (e.key === 'r' || e.key === 'R') {
+                    editSelectedRel();
+                    if (selectedRel) showNotification('Shortcut operation: Edit Relationship', 'info');
+                } else if (e.key === 'Delete') {
+                    if (e.shiftKey) {
+                        deleteRelSelected();
+                        if (selectedRel) showNotification('Shortcut operation: Delete Relationship', 'info');
+                    } else {
+                        deleteSelected();
+                        if (selectedNode) showNotification('Shortcut operation: Delete Node', 'info');
+                    }
+                }
+                else if (e.ctrlKey && e.key === 'f') {
+                    e.preventDefault();
+                    document.getElementById('node-search-input').focus();
+                    showNotification('Quick Operation: Search Node (Ctrl+F)', 'info');
+                }
+                else if (e.key === 'F5') {
+                    e.preventDefault();
+                    reconnectDB();
+                    showNotification('Shortcut operation: Reconnect', 'info');
+                } else if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal').forEach(modal => {
+                        modal.style.display = 'none';
+                    }
+                    );
+
+                    endPickMode();
+                    clearSelection();
+                }
+            });
+        }
+
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        function updateStatus(text) {
+            document.getElementById('status-text').textContent = text;
+        }
+
+        function updateConnectionStatus(connected) {
+            const statusDot = document.querySelector('.status-dot');
+            const statusText = document.querySelector('.connection-status span:last-child');
+
+            if (connected) {
+                statusDot.style.background = '#27ae60';
+                statusText.textContent = 'Connected';
+            } else {
+                statusDot.style.background = '#e74c3c';
+                statusText.textContent = 'Disconnected';
+            }
+        }
+
+
+        function selectNode(nodeData) {
+            selectedNode = nodeData.nodeData || nodeData;
+            selectedRel = null;
+            displayNodeDetails(selectedNode);
+            clearRelDetails();
+        }
+
+        function selectRelation(edgeData) {
+            selectedRel = edgeData.relData || edgeData;
+            selectedNode = null;
+            displayRelDetails(selectedRel);
+            clearNodeDetails();
+        }
+
+        function clearSelection() {
+            selectedNode = null;
+            selectedRel = null;
+            clearNodeDetails();
+            clearRelDetails();
+        }
+
+        async function apiRequest(endpoint, options = {}) {
+            try {
+                const response = await fetch(API_BASE + endpoint, {
+                    headers: {'Content-Type': 'application/json', ...options.headers},
+                    ...options
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                if (data.success === false) {
+                    throw new Error(data.error || 'Request failed');
+                }
+
+                return data;
+            } catch (error) {
+                console.error('API Error:', error);
+                showNotification('Error: ' + error.message, 'error');
+                throw error;
+            }
+        }
+
+
+        async function loadGraphData() {
+             try {
+                updateStatus('Loading graph data...');
+                console.log('Starting to load graph data...');
+
+                const response = await apiRequest('/graph');
+                console.log('API response:', response);
+
+                if (!response) {
+                    throw new Error('API response is empty');
+                }
+
+
+                graphData.nodes = Array.isArray(response.nodes) ? response.nodes : [];
+                graphData.rels = Array.isArray(response.relationships) ? response.relationships : [];
+
+                console.log('Data loading completed:', {
+                    nodes: graphData.nodes.length,
+                    relationships: graphData.rels.length,
+                    sampleNode: graphData.nodes[0],
+                    sampleRel: graphData.rels[0]
+                });
+
+
+                if (graphData.nodes.length === 0) {
+                    console.warn('No node data');
+                    showNotification('No node data found', 'warning');
+                }
+
+                if (graphData.rels.length === 0) {
+                    console.warn('No relationship data');
+                    showNotification('No relationship data found', 'warning');
+                }
+
+
+                setTimeout(() => {
+                    updateChart();
+                    updateConnectionStatus(true);
+                    updateStatus(`Loaded ${graphData.nodes.length} nodes, ${graphData.rels.length} relationships`);
+                    showNotification('Graph data loaded successfully', 'success');
+                }, 100);
+
+            } catch (error) {
+                console.error('Graph data loading failed:', error);
+                updateStatus('Graph data loading failed');
+                updateConnectionStatus(false);
+                showNotification('Connection failed, displaying offline data', 'warning');
+
+
+                graphData = {
+                    nodes: [
+                        {id: 'demo1', name: 'Example Node 1', labels: ['Demo'], properties: {name: 'Example Node 1'}},
+                        {id: 'demo2', name: 'Example Node 2', labels: ['Test'], properties: {name: 'Example Node 2'}}
+                    ],
+                    rels: [
+                        {id: 'rel1', source: 'demo1', target: 'demo2', type: 'RELATED', properties: {}}
+                    ]
+                };
+
+                setTimeout(() => {
+                    updateChart();
+                }, 100);
+            }
+        }
+
+
+        function displayNodeDetails(node) {
+            if (!node) return;
+            const container = document.getElementById('node-details-container');
+            const props = node.properties || {};
+
+            let propsHtml = '';
+            if (Object.keys(props).length > 0) {
+                propsHtml = Object.entries(props).map(([k, v]) =>
+                    `<div class="detail-property"><span class="detail-key">${k}:</span><span class="detail-value">${JSON.stringify(v)}</span></div>`
+                ).join('');
+            } else {
+                propsHtml = '<div style="text-align:center;color:#666;">This node has no properties</div>';
+            }
+
+            container.innerHTML = `
+                <div class="detail-card">
+                    <div class="detail-header">Basic Information</div>
+                    <div class="detail-content">
+                        <div class="detail-property"><span class="detail-key">ID:</span><span class="detail-value">${node.id}</span></div>
+                        <div class="detail-property"><span class="detail-key">Labels:</span><span class="detail-value">${(node.labels || []).join(', ')}</span></div>
+                        <button class="edit-button" onclick="editSelectedNode()">Edit Node</button>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-header">Property Information</div>
+                    <div class="detail-content">${propsHtml}</div>
+                </div>
+            `;
+        }
+
+        function displayRelDetails(rel) {
+            if (!rel) return;
+            const container = document.getElementById('rel-details-container');
+            const props = rel.properties || {};
+
+            let propsHtml = '';
+            if (Object.keys(props).length > 0) {
+                propsHtml = Object.entries(props).map(([k, v]) =>
+                    `<div class="detail-property"><span class="detail-key">${k}:</span><span class="detail-value">${JSON.stringify(v)}</span></div>`
+                ).join('');
+            } else {
+                propsHtml = '<div style="text-align:center;color:#666;">This relationship has no properties</div>';
+            }
+
+            container.innerHTML = `
+                <div class="detail-card">
+                    <div class="detail-header">Relationship Information</div>
+                    <div class="detail-content">
+                        <div class="detail-property"><span class="detail-key">ID:</span><span class="detail-value">${rel.id}</span></div>
+                        <div class="detail-property"><span class="detail-key">Type:</span><span class="detail-value">${rel.type}</span></div>
+                        <div class="detail-property"><span class="detail-key">Direction:</span><span class="detail-value">${rel.source} → ${rel.target}</span></div>
+                        <button class="edit-button" onclick="editSelectedRel()">Edit Relationship</button>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-header">Relationship Properties</div>
+                    <div class="detail-content">${propsHtml}</div>
+                </div>
+            `;
+        }
+
+        function clearNodeDetails() {
+            document.getElementById('node-details-container').innerHTML = '<div style="text-align:center;color:#6c757d;padding:20px;">Click on a node in the graph to view details</div>';
+        }
+
+        function clearRelDetails() {
+            document.getElementById('rel-details-container').innerHTML = '<div style="text-align:center;color:#6c757d;padding:20px;">Click on a relationship in the graph to view details</div>';
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page DOM loaded, starting initialization...');
+
+
+    window.contextMenuManager = new ContextMenuManager();
+
+
+    setTimeout(() => {
+        console.log('Starting chart initialization...');
+        initChart();
+
+
+        setTimeout(() => {
+                console.log('Starting to load data...');
+                loadGraphData();
+            }, 200);
+
+        }, 100);
+
+
+        initKeyboardShortcuts();
+
+        console.log('Neo4j Graph Editor Optimized Version Initialization Complete');
+        });
+
+        function getNodeFullDisplay(node) {
+            return `${getNodeDisplayName(node)} [${node.id}]`;
+        }
+
+
+
+        function exportFullXML() {
+            exportDataWithFormat('xml');
+        }
+
+
+        async function exportDataWithFormat(format) {
+            if (format !== 'xml') {
+                showNotification('Only XML format export is supported', 'warning');
+                return;
+            }
+
+            try {
+                updateStatus('Exporting XML data...');
+                const response = await fetch('/api/export/xml/full');
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const filename = `neo4j_export_${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.xml`;
+                const blob = await response.blob();
+                const url_obj = URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = url_obj;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url_obj);
+
+                showNotification('XML export successful', 'success');
+                updateStatus('XML export successful');
+            } catch (error) {
+                console.error('Export failed:', error);
+                showNotification('Export failed: ' + error.message, 'error');
+                updateStatus('Export failed');
+            }
+        }
+
+
+
+        function showImportModal() {
+            document.getElementById('import-modal').style.display = 'block';
+            document.getElementById('import-file').value = '';
+            document.getElementById('import-btn').disabled = true;
+            document.getElementById('file-info').textContent = 'Supported format: XML (.xml)';
+        }
+
+        function handleFileSelect(input) {
+            const file = input.files[0];
+            const importBtn = document.getElementById('import-btn');
+            const fileInfo = document.getElementById('file-info');
+            const repositoryName = document.getElementById('repository-name').value.trim();
+
+            if (!file || !repositoryName) {
+                importBtn.disabled = true;
+                if (!repositoryName) {
+                    fileInfo.innerHTML = '<span style="color: #e74c3c;">Please enter the Repository name first</span>';
+                } else {
+                    fileInfo.textContent = 'Supported format: XML (.xml)';
+                }
+                return;
+            }
+
+            const fileName = file.name.toLowerCase();
+            if (fileName.endsWith('.xml')) {
+                importBtn.disabled = false;
+                const size = (file.size / 1024).toFixed(1);
+                fileInfo.innerHTML = `Selected: <strong>${file.name}</strong><br>Format: XML, Size: ${size} KB<br>Repository: <strong>${repositoryName}</strong>`;
+            } else {
+                importBtn.disabled = true;
+                fileInfo.innerHTML = '<span style="color: #e74c3c;">Unsupported file format, please select an .xml file</span>';
+            }
+        }
+
+
+        function importXMLFile() {
+            showXMLImportModal();
+        }
+
+        function showXMLImportModal() {
+            document.getElementById('xml-import-modal').style.display = 'block';
+            document.getElementById('xml-import-file').value = '';
+            document.getElementById('xml-repository-name').value = '';
+            document.getElementById('xml-import-btn').disabled = true;
+            document.getElementById('xml-file-info').textContent = 'Supported format: XML (.xml)';
+        }
+
+        function handleXMLFileSelect(input) {
+            const file = input.files[0];
+            const importBtn = document.getElementById('xml-import-btn');
+            const fileInfo = document.getElementById('xml-file-info');
+            const repositoryName = document.getElementById('xml-repository-name').value.trim();
+
+            if (!file || !repositoryName) {
+                importBtn.disabled = true;
+                if (!repositoryName) {
+                    fileInfo.innerHTML = '<span style="color: #e74c3c;">Please enter the Repository name first</span>';
+                } else {
+                    fileInfo.textContent = 'Supported format: XML (.xml)';
+                }
+                return;
+            }
+
+            const fileName = file.name.toLowerCase();
+            if (fileName.endsWith('.xml')) {
+                importBtn.disabled = false;
+                const size = (file.size / 1024).toFixed(1);
+                fileInfo.innerHTML = `Selected: <strong>${file.name}</strong><br>Format: XML, Size: ${size} KB<br>Repository: <strong>${repositoryName}</strong>`;
+            } else {
+                importBtn.disabled = true;
+                fileInfo.innerHTML = '<span style="color: #e74c3c;">Unsupported file format, please select an .xml file</span>';
+            }
+        }
+
+        async function performXMLImport() {
+            const fileInput = document.getElementById('xml-import-file');
+            const repositoryName = document.getElementById('xml-repository-name').value.trim();
+            const file = fileInput.files[0];
+
+            if (!file) {
+                showNotification('Please select a file first', 'warning');
+                return;
+            }
+
+            if (!repositoryName) {
+                showNotification('Please enter the Repository name', 'warning');
+                return;
+            }
+
+            try {
+                updateStatus('Importing XML data...');
+                const formData = new FormData();
+                formData.append('file', file);
+                formData.append('repository_name', repositoryName);
+
+                const response = await fetch('/api/import', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    await loadGraphData();
+                    showNotification(result.message, 'success');
+                    updateStatus(result.message);
+                    closeModal('xml-import-modal');
+
+                    document.getElementById('xml-repository-name').value = '';
+                    document.getElementById('xml-import-file').value = '';
+                } else {
+                    throw new Error(result.error || 'XML import failed');
+                }
+            } catch (error) {
+                console.error('XML import failed:', error);
+                showNotification('XML import failed: ' + error.message, 'error');
+                updateStatus('XML import failed');
+            }
+        }
+
+        async function handleXMLImport(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            try {
+                updateStatus('Importing XML file...');
+                const formData = new FormData();
+                formData.append('file', file);
+
+                const response = await fetch('/api/import', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    await loadGraphData();
+                    showNotification(result.message, 'success');
+                    updateStatus(result.message);
+                } else {
+                    throw new Error(result.error || 'XML import failed');
+                }
+            } catch (error) {
+                console.error('XML import failed:', error);
+                showNotification('XML import failed: ' + error.message, 'error');
+                updateStatus('XML import failed');
+            }
+            input.value = '';
+        }
+
+
+        function showAddNodeModal() {
+            clearModal('add-node-modal');
+            const modal = document.getElementById('add-node-modal');
+            modal.style.display = 'block';
+            makeDraggable(modal);
+        }
+
+        function showAddRelModal() {
+            if (graphData.nodes.length < 2) {
+                showNotification('At least two nodes are required', 'warning');
+                return;
+            }
+            clearModal('add-rel-modal');
+            populateNodeSelectors();
+            const modal = document.getElementById('add-rel-modal');
+            modal.style.display = 'block';
+            makeDraggable(modal);
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            endPickMode();
+        }
+
+        function clearModal(modalId) {
+            if (modalId === 'add-node-modal') {
+                document.getElementById('node-labels').value = 'Node';
+                document.getElementById('node-properties').innerHTML = '';
+            } else if (modalId === 'add-rel-modal') {
+                document.getElementById('rel-type').value = 'RELATED';
+                document.getElementById('rel-source').selectedIndex = 0;
+                document.getElementById('rel-target').selectedIndex = 0;
+                document.getElementById('rel-properties').innerHTML = '';
+            }
+        }
+
+        function populateNodeSelectors() {
+            const sourceSelect = document.getElementById('rel-source');
+            const targetSelect = document.getElementById('rel-target');
+
+            sourceSelect.innerHTML = '<option value="">Please select start node</option>';
+            targetSelect.innerHTML = '<option value="">Please select target node</option>';
+
+            graphData.nodes.forEach(node => {
+                const option = `<option value="${node.id}">${getNodeFullDisplay(node)}</option>`;
+                sourceSelect.innerHTML += option;
+                targetSelect.innerHTML += option;
+            });
+
+            if (selectedNode) {
+                sourceSelect.value = selectedNode.id;
+            }
+        }
+
+
+        function addKVRow(containerId) {
+            const container = document.getElementById(containerId);
+            const row = document.createElement('div');
+            row.className = 'kv-row';
+            row.innerHTML = `
+                <input type="text" placeholder="Property Name" class="kv-key">
+                <input type="text" placeholder="Property Value" class="kv-value">
+                <button onclick="removeKVRow(this)">×</button>
+            `;
+            container.appendChild(row);
+        }
+
+        function removeKVRow(button) {
+            button.parentElement.remove();
+        }
+
+        function getKVData(containerId) {
+            const data = {};
+            document.getElementById(containerId).querySelectorAll('.kv-row').forEach(row => {
+                const key = row.querySelector('.kv-key').value.trim();
+                const value = row.querySelector('.kv-value').value.trim();
+                if (key && value) {
+                    try {
+                        data[key] = JSON.parse(value);
+                    } catch {
+                        data[key] = value;
+                    }
+                }
+            });
+            return data;
+        }
+
+        function populateKVData(containerId, properties) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            for (const [key, value] of Object.entries(properties)) {
+                addKVRow(containerId);
+                const lastRow = container.lastElementChild;
+                lastRow.querySelector('.kv-key').value = key;
+                lastRow.querySelector('.kv-value').value = typeof value === 'object' ? JSON.stringify(value) : value;
+            }
+
+            if (Object.keys(properties).length === 0) {
+                addKVRow(containerId);
+            }
+        }
+
+
+        function pickStartNode() {
+            beginPickMode('start');
+        }
+
+        function pickEndNode() {
+            beginPickMode('end');
+        }
+
+        function pickEditStartNode() {
+            beginPickMode('edit_start');
+        }
+
+        function pickEditEndNode() {
+            beginPickMode('edit_end');
+        }
+
+        function beginPickMode(target) {
+            pickMode = target;
+            currentModal = document.querySelector('.modal[style*="block"]');
+
+            if (currentModal) {
+                currentModal.style.pointerEvents = 'none';
+                currentModal.querySelector('.modal-content').style.pointerEvents = 'auto';
+            }
+
+            document.getElementById('pick-hint').style.display = 'block';
+            updateStatus(`Selecting ${target.includes('start') ? 'start' : 'target'} node: Please click on a node in the canvas`);
+        }
+
+        function endPickMode() {
+            pickMode = null;
+            if (currentModal) {
+                currentModal.style.pointerEvents = 'auto';
+            }
+            document.getElementById('pick-hint').style.display = 'none';
+            updateStatus('Ready - Right-click buttons for detailed instructions');
+        }
+
+        function handleNodePick(nodeData) {
+            const node = nodeData.nodeData || nodeData;
+
+            if (pickMode === 'start') {
+                document.getElementById('rel-source').value = node.id;
+                showNotification('Start node selected', 'success');
+            } else if (pickMode === 'end') {
+                document.getElementById('rel-target').value = node.id;
+                showNotification('Target node selected', 'success');
+            } else if (pickMode === 'edit_start') {
+                document.getElementById('edit-rel-source').value = node.id;
+                showNotification('Start node selected', 'success');
+            } else if (pickMode === 'edit_end') {
+                document.getElementById('edit-rel-target').value = node.id;
+                showNotification('Target node selected', 'success');
+            }
+
+            endPickMode();
+        }
+
+
+        async function createNode() {
+            const labelsStr = document.getElementById('node-labels').value.trim();
+            const labels = labelsStr.split(',').map(l => l.trim()).filter(l => l) || ['Node'];
+            const properties = getKVData('node-properties');
+
+            try {
+                updateStatus('Creating node...');
+                const response = await apiRequest('/nodes', {
+                    method: 'POST',
+                    body: JSON.stringify({labels, properties})
+                });
+
+                graphData.nodes.push(response.node);
+                updateChart();
+                closeModal('add-node-modal');
+                showNotification('Node added successfully', 'success');
+                updateStatus('Node added successfully');
+            } catch (error) {
+                updateStatus('Failed to add node');
+            }
+        }
+
+        async function createRelation() {
+            const type = document.getElementById('rel-type').value.trim() || 'RELATED';
+            const sourceId = document.getElementById('rel-source').value;
+            const targetId = document.getElementById('rel-target').value;
+            const properties = getKVData('rel-properties');
+
+            if (!sourceId || !targetId) {
+                showNotification('Please select start node and target node', 'warning');
+                return;
+            }
+
+            try {
+                updateStatus('Creating relationship...');
+                const response = await apiRequest('/relationships', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        source_id: sourceId,
+                        target_id: targetId,
+                        type: type,
+                        properties: properties
+                    })
+                });
+
+                graphData.rels.push(response.relationship);
+                updateChart();
+                closeModal('add-rel-modal');
+                showNotification('Relationship added successfully', 'success');
+                updateStatus('Relationship added successfully');
+            } catch (error) {
+                console.error('Failed to create relationship:', error);
+                updateStatus('Failed to add relationship');
+            }
+        }
+
+
+        function editSelectedNode() {
+            if (!selectedNode) {
+                showNotification('Please select a node first', 'warning');
+                return;
+            }
+
+            document.getElementById('edit-node-labels').value = (selectedNode.labels || []).join(', ');
+            populateKVData('edit-node-properties', selectedNode.properties || {});
+            document.getElementById('edit-node-modal').style.display = 'block';
+        }
+
+        function editSelectedRel() {
+            if (!selectedRel) {
+                showNotification('Please select a relationship first', 'warning');
+                return;
+            }
+
+            document.getElementById('edit-rel-type').value = selectedRel.type || '';
+            populateEditRelNodeSelectors();
+            document.getElementById('edit-rel-source').value = selectedRel.source;
+            document.getElementById('edit-rel-target').value = selectedRel.target;
+            populateKVData('edit-rel-properties', selectedRel.properties || {});
+            document.getElementById('edit-rel-modal').style.display = 'block';
+            const modal = document.getElementById('edit-rel-modal');
+            modal.style.display = 'block';
+            makeDraggable(modal);
+        }
+
+        function populateEditRelNodeSelectors() {
+            const sourceSelect = document.getElementById('edit-rel-source');
+            const targetSelect = document.getElementById('edit-rel-target');
+
+            sourceSelect.innerHTML = '<option value="">Please select start node</option>';
+            targetSelect.innerHTML = '<option value="">Please select target node</option>';
+
+            graphData.nodes.forEach(node => {
+                const option = `<option value="${node.id}">${getNodeFullDisplay(node)}</option>`;
+                sourceSelect.innerHTML += option;
+                targetSelect.innerHTML += option;
+            });
+        }
+
+        async function updateNode() {
+            if (!selectedNode) {
+                showNotification('Please select a node first', 'warning');
+                return;
+            }
+
+            const labelsStr = document.getElementById('edit-node-labels').value.trim();
+            const labels = labelsStr.split(',').map(l => l.trim()).filter(l => l) || ['Node'];
+            const properties = getKVData('edit-node-properties');
+
+            try {
+                updateStatus('Updating node...');
+                const response = await apiRequest(`/nodes/${selectedNode.id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({labels, properties})
+                });
+
+                for (let i = 0; i < graphData.nodes.length; i++) {
+                    if (graphData.nodes[i].id === selectedNode.id) {
+                        graphData.nodes[i] = response.node;
+                        selectedNode = response.node;
+                        break;
+                    }
+                }
+
+                updateChart();
+                displayNodeDetails(selectedNode);
+                closeModal('edit-node-modal');
+                showNotification('Node updated successfully', 'success');
+                updateStatus('Node updated successfully');
+            } catch (error) {
+                updateStatus('Node update failed');
+            }
+        }
+
+        async function deleteRelSelected() {
+            if (!selectedRel) {
+                showNotification('Please select a relationship first', 'warning');
+                return;
+            }
+
+            if (!confirm(`Are you sure you want to delete the relationship "${selectedRel.type}"?`)) {
+                return;
+            }
+
+            try {
+                updateStatus('Deleting relationship...');
+                await apiRequest(`/relationships/${selectedRel.id}`, {method: 'DELETE'});
+
+                graphData.rels = graphData.rels.filter(r => r.id !== selectedRel.id);
+
+                updateChart();
+                clearSelection();
+                showNotification('Relationship deleted successfully', 'success');
+                updateStatus('Relationship deleted successfully');
+            } catch (error) {
+                updateStatus('Failed to delete relationship');
+            }
+        }
+
+        async function deleteSelected() {
+            if (!selectedNode) {
+                showNotification('Please select a node first', 'warning');
+                return;
+            }
+
+
+            const nodeName = getNodeDisplayName(selectedNode);
+
+            if (!confirm(`Are you sure you want to delete the node "${nodeName}"?\n\nNote: Deleting this node will also remove all related relationship connections.`)) {
+                return;
+            }
+
+            try {
+                updateStatus('Deleting node...');
+
+
+                await apiRequest(`/nodes/${selectedNode.id}`, {
+                    method: 'DELETE'
+                });
+
+
+                graphData.nodes = graphData.nodes.filter(n => n.id !== selectedNode.id);
+
+
+                graphData.rels = graphData.rels.filter(r =>
+                    r.source !== selectedNode.id && r.target !== selectedNode.id
+                );
+
+
+                updateChart();
+
+
+                clearSelection();
+
+                showNotification('Node deleted successfully', 'success');
+                updateStatus(`Node deleted, ${graphData.nodes.length} nodes remaining`);
+
+            } catch (error) {
+                console.error('Failed to delete node:', error);
+                showNotification('Failed to delete node: ' + error.message, 'error');
+                updateStatus('Failed to delete node');
+            }
+        }
+
+        async function reconnectDB() {
+            try {
+                updateStatus('Reconnecting to database...');
+                const response = await apiRequest('/reconnect', {method: 'POST'});
+
+                if (response.success) {
+                    await loadGraphData();
+                    showNotification('Database reconnection successful', 'success');
+                    updateConnectionStatus(true);
+                } else {
+                    throw new Error(response.message || 'Reconnection failed');
+                }
+            } catch (error) {
+                showNotification('Database reconnection failed: ' + error.message, 'error');
+                updateConnectionStatus(false);
+                updateStatus('Database reconnection failed');
+            }
+        }
+
+
+        function showSelectiveExportModal() {
+            const modalHtml = `
+                <div id="selective-export-modal" class="modal" style="display: block;">
+                    <div class="modal-content" style="max-width: 800px;">
+                        <div class="modal-header">
+                            <h2>Selective Export</h2>
+                            <button class="close" onclick="closeModal('selective-export-modal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group" style="margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px;">
+                                <label for="repository-selector">Select Repository (Node):</label>
+                                <div class="combo-box">
+                                    <select id="repository-selector" class="form-control" onchange="onRepositoryChange()">
+                                        <option value="">Please select a Repository first...</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div id="labels-selection-area" style="display: none;">
+                                <div style="margin-bottom: 15px;">
+                                    <button class="btn btn-secondary" onclick="selectAllLabels()">Select All</button>
+                                    <button class="btn btn-secondary" onclick="clearAllLabels()">Clear</button>
+                                </div>
+                                <div id="labels-container">
+                                    <div style="text-align: center; padding: 20px;">Please select a Repository first</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" onclick="closeModal('selective-export-modal')">Cancel</button>
+                            <button class="btn btn-primary" id="selective-export-btn" onclick="performSelectiveExport()" disabled>Export Selected Items</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const existingModal = document.getElementById('selective-export-modal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            loadAvailableRepositories();
+        }
+
+
+        async function loadAvailableRepositories() {
+            try {
+                const response = await fetch('/api/repositories');
+                const result = await response.json();
+
+                if (result.success) {
+                    populateRepositorySelector(result.repositories);
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                const selector = document.getElementById('repository-selector');
+                if (selector) {
+                    selector.innerHTML = '<option value="">Failed to load Repository</option>';
+                }
+                console.error('Failed to load Repository:', error);
+            }
+        }
+
+        function populateRepositorySelector(repositories) {
+            const selector = document.getElementById('repository-selector');
+            if (!selector) return;
+
+            selector.innerHTML = '<option value="">Please select Repository...</option>';
+
+            repositories.forEach(repo => {
+                const option = document.createElement('option');
+                option.value = repo.id;
+                option.textContent = repo.name;
+                selector.appendChild(option);
+            });
+        }
+
+        async function onRepositoryChange() {
+            const selector = document.getElementById('repository-selector');
+            const repositoryId = selector.value;
+            const labelsArea = document.getElementById('labels-selection-area');
+            const exportBtn = document.getElementById('selective-export-btn');
+
+            if (!repositoryId) {
+                labelsArea.style.display = 'none';
+                exportBtn.disabled = true;
+                return;
+            }
+
+            try {
+                labelsArea.style.display = 'block';
+                document.getElementById('labels-container').innerHTML =
+                    '<div style="text-align: center; padding: 20px;">Loading structure labels...</div>';
+
+                const response = await fetch(`/api/repositories/${repositoryId}/structures`);
+                const result = await response.json();
+
+                if (result.success) {
+                    displayLabels(result.labels);
+                    exportBtn.disabled = false;
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                document.getElementById('labels-container').innerHTML =
+                    `<div style="color: #e74c3c; text-align: center;">Failed to load structure labels: ${error.message}</div>`;
+                exportBtn.disabled = true;
+            }
+        }
+
+
+
+        async function loadAvailableLabels() {
+            try {
+                const response = await fetch('/api/labels');
+                const result = await response.json();
+
+                if (result.success) {
+                    displayLabels(result.labels);
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                document.getElementById('labels-container').innerHTML =
+                    `<div style="color: #e74c3c; text-align: center;">Failed to load labels: ${error.message}</div>`;
+            }
+        }
+
+        function displayLabels(labels) {
+            const container = document.getElementById('labels-container');
+            let html = '';
+
+            const categories = [
+                { key: 'Step Labels', title: 'Step Labels', color: '#3498db' },
+                { key: 'Hole Labels', title: 'Hole Labels', color: '#e74c3c' },
+                { key: 'Slot Labels', title: 'Slot Labels', color: '#2ecc71' },
+                { key: 'Pocket Labels', title: 'ocket Labels', color: '#f39c12' },
+                { key: 'Passage Labels', title: 'Passage Labels', color: '#9b59b6' },
+                { key: 'Other Labels', title: 'Other Labels', color: '#95a5a6' }
+            ];
+
+            categories.forEach(category => {
+                const categoryLabels = labels[category.key] || [];
+                if (categoryLabels.length > 0) {
+                    html += `
+                        <div style="margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 15px;">
+                            <h3 style="color: ${category.color}; margin-bottom: 10px; font-size: 16px;">
+                                ${category.title}
+                                <button class="btn btn-secondary" style="font-size: 11px; padding: 2px 8px; margin-left: 10px;"
+                                        onclick="selectCategoryLabels('${category.key}')">Select All in This Category</button>
+                            </h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;">
+                    `;
+
+                    categoryLabels.forEach(label => {
+                        html += `
+                            <label style="display: flex; align-items: center; padding: 5px; background: rgba(0,0,0,0.3); border-radius: 4px; cursor: pointer;">
+                                <input type="checkbox" class="label-checkbox" value="${label}" style="margin-right: 8px;">
+                                <span style="font-size: 12px;">${label}</span>
+                            </label>
+                        `;
+                    });
+
+                    html += `
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            if (html === '') {
+                html = '<div style="text-align: center; color: #95a5a6;">No labels found</div>';
+            }
+
+            container.innerHTML = html;
+        }
+
+        function selectAllLabels() {
+            const checkboxes = document.querySelectorAll('.label-checkbox');
+            checkboxes.forEach(cb => cb.checked = true);
+        }
+
+        function clearAllLabels() {
+            const checkboxes = document.querySelectorAll('.label-checkbox');
+            checkboxes.forEach(cb => cb.checked = false);
+        }
+
+        function selectCategoryLabels(categoryKey) {
+
+            console.log('Selecting category:', categoryKey);
+        }
+
+        async function performSelectiveExport() {
+            const repositorySelector = document.getElementById('repository-selector');
+            const repositoryId = repositorySelector.value;
+
+            if (!repositoryId) {
+                showNotification('Please select a Repository first', 'warning');
+                return;
+            }
+
+            const selectedLabels = Array.from(document.querySelectorAll('.label-checkbox:checked'))
+                                       .map(cb => cb.value);
+
+            if (selectedLabels.length === 0) {
+                showNotification('Please select at least one structure label', 'warning');
+                return;
+            }
+
+            try {
+                updateStatus('Exporting XML data...');
+                await exportSelectiveXML(selectedLabels, repositoryId);
+                closeModal('selective-export-modal');
+                updateStatus('XML export completed');
+
+            } catch (error) {
+                console.error('XML export failed:', error);
+                showNotification('XML export failed: ' + error.message, 'error');
+                updateStatus('XML export failed');
+            }
+        }
+
+        async function exportSelectiveXML(selectedLabels, repositoryId) {
+            const requestData = {
+                labels: selectedLabels
+            };
+
+
+            if (repositoryId) {
+                requestData.repository_id = repositoryId;
+            }
+
+            const response = await fetch('/api/export/xml/selective', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestData)
+            });
+
+            if (response.ok) {
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `selective_export_${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.xml`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+
+                showNotification('XML selective export successful', 'success');
+            } else {
+                const error = await response.json();
+                throw new Error(error.error);
+            }
+        }
+
+
+
+        function enableNodeDragging() {
+            if (!chart) return;
+
+            let isDragging = false;
+            let dragNode = null;
+
+            chart.getZr().on('mousedown', function(e) {
+                const pointInPixel = [e.offsetX, e.offsetY];
+                const pointInGrid = chart.convertFromPixel('series', pointInPixel);
+
+                if (pointInGrid) {
+                    const params = chart.getModel().getComponent('series', 0);
+                    const data = params.getData();
+
+                    data.each(function(idx) {
+                        const itemModel = data.getItemModel(idx);
+                        const point = chart.convertToPixel('series', itemModel.option);
+
+                        if (Math.abs(pointInPixel[0] - point[0]) < 20 &&
+                            Math.abs(pointInPixel[1] - point[1]) < 20) {
+                            isDragging = true;
+                            dragNode = data.getName(idx);
+                            chart.getZr().setCursorStyle('grabbing');
+                        }
+                    });
+                }
+            });
+
+            chart.getZr().on('mousemove', function(e) {
+                if (isDragging && dragNode) {
+                    const pointInPixel = [e.offsetX, e.offsetY];
+                    const pointInGrid = chart.convertFromPixel('series', pointInPixel);
+
+                    if (pointInGrid) {
+                        const option = chart.getOption();
+                        const nodeData = option.series[0].data.find(node => node.id === dragNode);
+
+                        if (nodeData) {
+                            nodeData.x = pointInGrid[0];
+                            nodeData.y = pointInGrid[1];
+                            nodeData.fixed = true;
+                            chart.setOption(option);
+                        }
+                    }
+                }
+            });
+
+            chart.getZr().on('mouseup', function() {
+                if (isDragging) {
+                    isDragging = false;
+                    dragNode = null;
+                    chart.getZr().setCursorStyle('default');
+                }
+            });
+        }
+
+
+
+
+        function isModalOpen() {
+            return Array.from(document.querySelectorAll('.modal')).some(modal =>
+                modal.style.display === 'block'
+            );
+        }
+
+
+
+
+        setTimeout(() => {
+            enableNodeDragging();
+        }, 1000);
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const xmlRepositoryInput = document.getElementById('xml-repository-name');
+            if (xmlRepositoryInput) {
+                xmlRepositoryInput.addEventListener('input', function() {
+                    const fileInput = document.getElementById('xml-import-file');
+                    if (fileInput.files[0]) {
+                        handleXMLFileSelect(fileInput);
+                    }
+                });
+            }
+
+
+            const repositoryInput = document.getElementById('repository-name');
+            if (repositoryInput) {
+                repositoryInput.addEventListener('input', function() {
+                    const fileInput = document.getElementById('import-file');
+                    if (fileInput.files[0]) {
+                        handleFileSelect(fileInput);
+                    }
+                });
+            }
+        });
+
+
+        document.addEventListener('keydown', function(e) {
+           if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                return;
+            }
+
+            if (e.key === 'Delete' || e.key === 'Backspace') {
+                if (selectedNode && !isModalOpen()) {
+                    e.preventDefault();
+                    deleteSelected();
+                } else if (selectedRel && !isModalOpen()) {
+                    e.preventDefault();
+                    deleteRelSelected();
+                }
+            }
+        });
+
+
+        setTimeout(() => {
+            updateStatus('Ready - Right-click buttons for detailed instructions, shortcut keys supported');
+            showNotification('Optimized graph editor loaded! Right-click toolbar buttons for function descriptions', 'info');
+        }, 2000);
+
+        function makeDraggable(modal) {
+            const header = modal.querySelector('.modal-header');
+            const modalContent = modal.querySelector('.modal-content');
+
+            if (!header || !modalContent) return;
+
+            let isDragging = false;
+            let currentX;
+            let currentY;
+            let initialX;
+            let initialY;
+            let xOffset = 0;
+            let yOffset = 0;
+
+            header.addEventListener('mousedown', dragStart);
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', dragEnd);
+
+            function dragStart(e) {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+
+                if (e.target === header || header.contains(e.target)) {
+                    isDragging = true;
+                    header.style.cursor = 'grabbing';
+                }
+            }
+
+            function drag(e) {
+                if (isDragging) {
+                    e.preventDefault();
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+
+                    xOffset = currentX;
+                    yOffset = currentY;
+
+                    modalContent.style.transform = `translate(${currentX}px, ${currentY}px)`;
+                }
+            }
+
+            function dragEnd(e) {
+                initialX = currentX;
+                initialY = currentY;
+                isDragging = false;
+                header.style.cursor = 'move';
+            }
+        }
+
+
+        async function updateRelation() {
+            if (!selectedRel) {
+                showNotification('Please select a relationship first', 'warning');
+                return;
+            }
+
+            const type = document.getElementById('edit-rel-type').value.trim() || 'RELATED';
+            const sourceId = document.getElementById('edit-rel-source').value;
+            const targetId = document.getElementById('edit-rel-target').value;
+            const properties = getKVData('edit-rel-properties');
+
+            if (!sourceId || !targetId) {
+                showNotification('Please select start node and target node', 'warning');
+                return;
+            }
+
+            try {
+                updateStatus('Updating relationship...');
+                const response = await apiRequest(`/relationships/${selectedRel.id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        source_id: sourceId,
+                        target_id: targetId,
+                        type: type,
+                        properties: properties
+                    })
+                });
+
+
+                for (let i = 0; i < graphData.rels.length; i++) {
+                    if (graphData.rels[i].id === selectedRel.id) {
+                        graphData.rels[i] = response.relationship;
+                        selectedRel = response.relationship;
+                        break;
+                    }
+                }
+
+                updateChart();
+                displayRelDetails(selectedRel);
+                closeModal('edit-rel-modal');
+                showNotification('Relationship updated successfully', 'success');
+                updateStatus('Relationship updated successfully');
+            } catch (error) {
+                console.error('Failed to update relationship:', error);
+                updateStatus('Relationship update failed');
+            }
+        }
+
+</script>
+</body>
+</html>
