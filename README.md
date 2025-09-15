@@ -47,6 +47,33 @@ NEO4J_URI = "bolt://localhost:7687"
 NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "your_password_here"
 ```
+# Repostiory Structure
+neo4j-kg-manager/
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── LICENSE
+├── app.py
+├── config.py
+├── KG_Manage/
+│   ├── __init__.py
+│   ├── graph_editor.py
+│   ├── database_manager.py
+│   ├── data_loader.py
+│   ├── node_manager.py
+│   ├── relationship_manager.py
+│   ├── export_manager.py
+│   └── import_manager.py
+├── templates/
+│   └── neo4j_editor.html
+├── static/ (if you have CSS/JS files)
+└── examples/
+    └── sample_structure.xml
+
+
+
+
+
 # Quick Start
 **1.Start the Application**
  ```bash
@@ -81,7 +108,7 @@ The application will be available at http://localhost:5000 \
   c. Select XML file (sample_structure.xml) \
   d. Click **"Start Import"**
 
-  \
+
   
  
 
