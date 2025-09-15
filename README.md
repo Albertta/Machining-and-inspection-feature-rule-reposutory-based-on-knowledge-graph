@@ -53,7 +53,6 @@ neo4j-KG-Manager/
 ├── app.py
 ├── config.py
 ├── KG_Manage/
-│   ├── __init__.py
 │   ├── graph_editor.py
 │   ├── database_manager.py
 │   ├── data_loader.py
