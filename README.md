@@ -52,6 +52,8 @@ NEO4J_PASSWORD = "your_password_here"
    python app.py
  ```
 The application will be available at http://localhost:5000 \
+\
+
 2.Verify Database Connection
 - Check the connection status indicator in the top-right corner
 - Green dot indicates successful connection
