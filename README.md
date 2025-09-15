@@ -117,6 +117,21 @@ All API endpoints are defined in app.py. The Flask application provides the foll
 
 **3. Relationship Operations**
 - POST /api/relationships - Create relationship
+- PUT /api/relationships/<rel_id> - Update relationship
+- DELETE /api/relationships/<rel_id> - Delete relationship
+
+**4. Repository Management**
+- GET /api/repositories - Get available repositories
+- GET /api/repositories/<repository_id>/structures - Get structures by repository
+
+**5. Import/Export**
+- POST /api/import - Import XML data
+- GET /api/export/xml/full - Export all data as XML
+- POST /api/export/xml/selective - Export selected data
+- GET /api/labels - Get available labels
+
+
+
 
   
  
