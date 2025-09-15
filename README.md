@@ -103,6 +103,7 @@ The application will be available at http://localhost:5000 \
   d. Click **"Start Import"**
   
 # API Endpoints
+All API endpoints are defined in app.py. The Flask application provides the following **REST API:** \
 
   
  
