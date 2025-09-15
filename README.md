@@ -67,7 +67,7 @@ The application will be available at http://localhost:5000 \
    c. Add properties as key-value pairs \
    d. Click **"Confirm"**
 
-- **Create Relationships:**
+- **Create Relationships:** \
   a. Click "ADD Relationship" button \
   b. Select source and target nodes \
   c. Specify relationship type \
