@@ -23,7 +23,8 @@ A comprehensive web-based feature rule knowledge graph management system was dev
   - Dark/light theme switching
   - Real-time search and filtering of graph elements
 
-# 🌿 Requirements
+# 🌿 Requirements  
+Python==3.9.18
 Flask==2.3.3
 Flask-CORS==4.0.0
 py2neo==2021.2.3
