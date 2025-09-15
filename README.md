@@ -50,7 +50,8 @@ NEO4J_PASSWORD = "your_password_here"
 1.Start the Application
  ```bash
    python app.py
- ``` \
+ ```
+
 The application will be available at http://localhost:5000
  
 
