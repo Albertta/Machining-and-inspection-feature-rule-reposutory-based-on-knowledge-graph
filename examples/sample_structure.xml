@@ -1,0 +1,854 @@
+<?xml version="1.0"?>
+<StandardFeatureStructure>
+    <Structure StructureNo = "1" StructureName = "一般方盲孔"  StructureEnglishName= "Rectangular pocket" >
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "2" StructureName = "一般通槽"  StructureEnglishName= "Rectangular through slot" >
+       
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "5" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "6" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+        </FaceList>
+       
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "3" StructureName = "一般盲槽"  StructureEnglishName= "Rectangular blind slot" >
+       
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "5" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "4" StructureName = "平面矩形台阶"  StructureEnglishName= "Rectangular through step" >
+       
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "5" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "5" StructureName = "一般加强筋"  StructureEnglishName= "Triangular stiffener" >
+       
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "6" StructureName = "一般通孔"  StructureEnglishName= "Through hole" >
+        
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "1" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_1" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_1" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "7" StructureName = "一般盲孔"  StructureEnglishName= "Blind hole" >
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "2" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "8" StructureName = "矩形方通孔"  StructureEnglishName= "Rectangular passage" >
+        
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_1" IsConvexSurface = "0"/>
+            <Face FaceNo = "5" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_1" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "9" StructureName = "环形盲阶"  StructureEnglishName= "Circular blind step" >
+       
+       <FaceList>
+           <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+           <Face FaceNo = "1" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "-1"/>
+           <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+           <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+       </FaceList>
+       <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="3" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+       </RelationShipList>
+   </Structure>
+   <Structure StructureNo = "10" StructureName = "圆柱形键槽"  StructureEnglishName= "Circular end pocket" >
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "11" StructureName = "三角矩形台阶"  StructureEnglishName= "Triangular blind step" >
+          
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "12" StructureName = "V形通槽"  StructureEnglishName= "Triangular through slot" >
+        
+      <FaceList>
+          <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+          <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_1" IsConvexSurface = "0"/>
+          <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+          <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+          <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+          <Face FaceNo = "5" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+      </FaceList>
+      
+      <RelationShipList>
+        <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+        <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+        <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+        <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="2" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+        <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="3" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+        <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="4" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="5" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        <RelationShip SourceFaceNo="5" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+        <RelationShip SourceFaceNo="5" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+      </RelationShipList>
+  </Structure>
+  <Structure StructureNo = "13" StructureName = "倒角"  StructureEnglishName= "Chamfer" >
+    
+    <FaceList>
+        <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+        <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+    </FaceList>
+   
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "14" StructureName = "圆角"  StructureEnglishName= "Round" >
+       
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "1"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        </FaceList>
+       
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "15" StructureName = "一般圆通槽"  StructureEnglishName= "Circular through slot" >
+        
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        </FaceList>
+       
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "16" StructureName = "矩形盲台阶"  StructureEnglishName= "Rectangular blind step" >
+        
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "5" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        </FaceList>
+       
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "17" StructureName = "O型环孔"  StructureEnglishName= "O ring" >
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "1" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "2" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "3" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "1"/>
+            <Face FaceNo = "4" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "1"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "18" StructureName = "台阶孔"  StructureEnglishName= "Stepped hole" >
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "2" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "1" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "5" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="5" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="4" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "19" StructureName = "锥形孔stp"  StructureEnglishName= "Tapered hole" >
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "2" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "3" FaceType = "2" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "4" FaceType = "2" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="3" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="4" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="2" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="1" FlagAngleDegree="0"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "20" StructureName = "三角形通孔"  StructureEnglishName= "Triangular passage" >
+        
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_1" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_1" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+    <Structure StructureNo = "21" StructureName = "六边形通孔"  StructureEnglishName= "Six sides passage" >
+        
+       <FaceList>
+           <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+           <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+           <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+           <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+           <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+           <Face FaceNo = "5" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+           <Face FaceNo = "6" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_1" IsConvexSurface = "0"/>
+           <Face FaceNo = "7" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_1" IsConvexSurface = "0"/>
+       </FaceList>
+       <RelationShipList>
+           <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="0" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="0" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="0" TargetFaceNo="7" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="1" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="1" TargetFaceNo="7" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="2" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="2" TargetFaceNo="7" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="3" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="3" TargetFaceNo="7" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="4" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="4" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="4" TargetFaceNo="7" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="5" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="5" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+           <RelationShip SourceFaceNo="5" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="5" TargetFaceNo="7" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="6" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="6" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="6" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="6" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="6" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="6" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="7" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="7" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="7" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="7" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="7" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           <RelationShip SourceFaceNo="7" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+           
+       </RelationShipList>
+   </Structure>
+
+   <Structure StructureNo = "22" StructureName = "双矩形面台阶"  StructureEnglishName= "Two sides through step" >
+        
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+
+    <Structure StructureNo = "23" StructureName = "矩形斜面台阶"  StructureEnglishName= "Slanted through step" >
+       
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "5" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        </FaceList>
+       
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_1" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+
+    <Structure StructureNo = "24" StructureName = "三角形盲方孔"  StructureEnglishName= "Triangular pocket" >
+        
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+        </RelationShipList>
+    </Structure>
+
+    <Structure StructureNo = "25" StructureName = "六边形盲方孔"  StructureEnglishName= "Six sides pocket" >
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "5" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "6" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="6" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="6" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="6" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+            <RelationShip SourceFaceNo="6" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="2"/>
+        </RelationShipList>
+    </Structure>
+
+    <Structure StructureNo = "26" StructureName = "水平端盲槽"  StructureEnglishName= "Horizontal end blind slot" >
+       
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "5" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        </FaceList>
+         
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="4" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="3" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_2" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="0" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_2" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+
+    <Structure StructureNo = "27" StructureName = "垂直圆端盲槽"  StructureEnglishName= "Vertical circular end blind slot" >
+        
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "1" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "1" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "2" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "3" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "4" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+            <Face FaceNo = "5" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "multi_0" IsConvexSurface = "0"/>
+        </FaceList>
+        
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="1" IsVertical="0" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="3" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="3" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="4" TargetFaceNo="5" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_2" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="0" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="1" RelationShipType="1" FlagAngleDegree="1"/>
+            <RelationShip SourceFaceNo="5" TargetFaceNo="4" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="1" SizeEdgeIntersection="multi_2" RelationShipType="1" FlagAngleDegree="1"/>
+        </RelationShipList>
+    </Structure>
+
+    <Structure StructureNo = "28" StructureName = "椭圆盲孔"  StructureEnglishName= "Elliptical blind hole" >
+        <FaceList>
+            <Face FaceNo = "0" FaceType = "0" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "0"/>
+            <Face FaceNo = "1" FaceType = "3" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+            <Face FaceNo = "2" FaceType = "3" OutterLoopSize = "1"  InnerLoopSize = "0" IsConvexSurface = "-1"/>
+        </FaceList>
+        <RelationShipList>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="4" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="0" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="4" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="4" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="1" TargetFaceNo="2" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="4" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="0" IsIntersection="1" IsParallel="0" IsVertical="1" IsConvexity="-1" SizeEdgeIntersection="1" RelationShipType="4" FlagAngleDegree="0"/>
+            <RelationShip SourceFaceNo="2" TargetFaceNo="1" IsIntersection="1" IsParallel="0" IsVertical="0" IsConvexity="0" SizeEdgeIntersection="2" RelationShipType="4" FlagAngleDegree="0"/>
+        </RelationShipList>
+    </Structure>
+
+
+</StandardFeatureStructure>
