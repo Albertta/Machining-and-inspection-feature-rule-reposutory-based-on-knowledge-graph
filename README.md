@@ -49,11 +49,7 @@ NEO4J_PASSWORD = "your_password_here"
 ```
 # Repostiory Structure
 ```text
-neo4j-kg-manager/
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── LICENSE
+neo4j-KG-Manager/
 ├── app.py
 ├── config.py
 ├── KG_Manage/
@@ -67,13 +63,11 @@ neo4j-kg-manager/
 │   └── import_manager.py
 ├── templates/
 │   └── neo4j_editor.html
-├── static/ (if you have CSS/JS files)
 └── examples/
     └── sample_structure.xml
+├── README.md
+├── LICENSE
 ```
-
-
-
 
 # Quick Start
 **1.Start the Application**
