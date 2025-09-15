@@ -4,18 +4,18 @@ A comprehensive web-based feature rule knowledge graph management system was dev
 Features
 -
 -**Interactive Graph Visualization**:   
--Real-time graph rendering with ECharts integration
+-Real-time graph rendering with ECharts integration  
 **Node & Relationship Management**:   
--Full CRUD operations with intuitive web interface
+-Full CRUD operations with intuitive web interface  
 -**XML Import/Export**:   
--Support for StandardFeatureStructure XML format
+-Support for StandardFeatureStructure XML format  
 -**Search & Navigation**:   
--Advanced search functionality with node highlighting
+-Advanced search functionality with node highlighting  
 -**Repository Management**:  
--Organize structures under repository nodes
+-Organize structures under repository nodes  
 -**Drag & Drop Interface**:   
--Interactive node positioning and graph manipulation
--**Keyboard Shortcuts**:   
--Efficient workflow with customizable hotkeys
+-Interactive node positioning and graph manipulation  
+-**Keyboard Shortcuts**:  
+-Efficient workflow with customizable hotkeys  
 -**Real-time Updates**:  
 -Live graph updates without page refresh
