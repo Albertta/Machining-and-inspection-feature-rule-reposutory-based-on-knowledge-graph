@@ -1,4 +1,4 @@
-<img width="317" height="260" alt="image" src="https://github.com/user-attachments/assets/04e1ea64-17c6-4e01-ab4a-657927e54f6b" /># Machining-and-inspection-feature-rule-reposutory-based-on-knowledge-graph
+# Machining-and-inspection-feature-rule-reposutory-based-on-knowledge-graph
 A comprehensive web-based feature rule knowledge graph management system was developed using Neo4j, Flask, and modern web technologies. This tool provides an intuitive interface for creating, editing, visualizing, and managing the feature rule knowledge graph library.
 
 # 🚀 Features
@@ -36,7 +36,7 @@ A comprehensive web-based feature rule knowledge graph management system was dev
   Set password (configure in config.py)
   Start the database
 - Option B: Neo4j Docker
-  bashdocker run \
+  docker run \
       --name neo4j-kg \
       -p 7474:7474 -p 7687:7687 \
       -e NEO4J_AUTH=neo4j/yourpassword \
