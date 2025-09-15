@@ -46,7 +46,11 @@ NEO4J_URI = "bolt://localhost:7687"
 NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "your_password_here"
 ```
-
+# Quich Start
+```bash
+  python app.py
+```
+ The application will be available at: http://localhost:5000 
 
 
 
