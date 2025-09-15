@@ -33,4 +33,4 @@ Clean and interactive UI design
 
 Dark/light theme switching
 
-Real-time search and filtering of graph elements
+# Real-time search and filtering of graph elements-
