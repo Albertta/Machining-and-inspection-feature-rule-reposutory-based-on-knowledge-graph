@@ -69,13 +69,20 @@ The application will be available at http://localhost:5000 \
    d. Click **"Confirm"**
 
 - **Create Relationships:** \
-  a. Click "ADD Relationship" button \
+  a. Click **"ADD Relationship"** button \
   b. Select source and target nodes \
   c. Specify relationship type \
   d. Add properties if needed \
-  e. Click "Confirm" 
+  e. Click **"Confirm"**
 
+- **Import Data:**
+  a. Click **"Import ▼"** → "Import XML File" \
+  b. Provide repository name \
+  c. Select XML file (sample_structure.xml) \
+  d. Click **"Start Import"**
 
+  \
+  
  
 
 
