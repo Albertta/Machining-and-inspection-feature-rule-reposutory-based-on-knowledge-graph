@@ -31,12 +31,12 @@ A comprehensive web-based feature rule knowledge graph management system was dev
 
 #   Neo4j Database Setup
 - Option A: Neo4j Desktop (Recommended)
-  Download and install Neo4j Desktop
+  -Download and install Neo4j Desktop
   Create a new database project
   Set password (configure in config.py)
   Start the database
 - Option B: Neo4j Docker
-  docker run \
+  -docker run \
       --name neo4j-kg \
       -p 7474:7474 -p 7687:7687 \
       -e NEO4J_AUTH=neo4j/yourpassword \
