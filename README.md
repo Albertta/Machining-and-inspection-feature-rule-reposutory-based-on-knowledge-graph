@@ -31,7 +31,7 @@ A comprehensive web-based feature rule knowledge graph management system was dev
 - py2neo==2021.2.3
 
 # 🗄️ Neo4j Database Setup
-- **Option A: Neo4j Desktop (Recommended)**
+- **Option A: Neo4j Desktop (Recommended)** \
   Download and install Neo4j Desktop
   Create a new database project
   Set password (configure in config.py)
