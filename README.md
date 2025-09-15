@@ -51,8 +51,8 @@ NEO4J_PASSWORD = "your_password_here"
 ```bash
   python app.py
 ```
-The application will be available at: http://localhost:5000 
-2. Verify Database Connection
+  The application will be available at: http://localhost:5000  
+  2. Verify Database Connection
  
 
 
