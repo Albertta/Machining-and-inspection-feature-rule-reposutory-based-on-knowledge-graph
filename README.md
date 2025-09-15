@@ -25,7 +25,7 @@ A comprehensive web-based feature rule knowledge graph management system was dev
 
 # 🌿 Requirements  
 -Python==3.9.18
--Flask==2.3.3
--Flask-CORS==4.0.0
+-Flask==3.0.3
+-Flask-CORS==6.0.1
 -py2neo==2021.2.3
 
