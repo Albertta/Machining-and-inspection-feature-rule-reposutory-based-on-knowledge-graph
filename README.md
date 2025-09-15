@@ -5,17 +5,17 @@ Features
 -
 -**Interactive Graph Visualization**:   
 -Real-time graph rendering with ECharts integration
-**Node & Relationship Management**: 
+**Node & Relationship Management**:   
 -Full CRUD operations with intuitive web interface
--**XML Import/Export**: 
+-**XML Import/Export**:   
 -Support for StandardFeatureStructure XML format
--**Search & Navigation**: 
+-**Search & Navigation**:   
 -Advanced search functionality with node highlighting
--**Repository Management**: 
+-**Repository Management**:  
 -Organize structures under repository nodes
--**Drag & Drop Interface**: 
+-**Drag & Drop Interface**:   
 -Interactive node positioning and graph manipulation
--**Keyboard Shortcuts**: 
+-**Keyboard Shortcuts**:   
 -Efficient workflow with customizable hotkeys
--**Real-time Updates**:
+-**Real-time Updates**:  
 -Live graph updates without page refresh
